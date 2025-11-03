@@ -3,7 +3,10 @@ import { COLOR } from "@/utils/color";
 import { useRouter } from "expo-router";
 import { Image, TouchableOpacity, View, Text } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -69,95 +72,97 @@ export default function OnboardingPage() {
 
   return (
     <>
-      <Onboarding
-        onSkip={handleFinish}
-        onDone={handleFinish}
-        bottomBarHeight={60 + insets.bottom}
-        titleStyles={{
-          color: COLOR.dark1,
-          fontWeight: 700,
-        }}
-        subTitleStyles={{
-          width: 300,
-          fontSize: 16,
-        }}
-        SkipButtonComponent={(props) => (
-          <Btn label="Skip" onPress={props.onPress} />
-        )}
-        NextButtonComponent={(props) => (
-          <Btn label="Next" onPress={props.onPress} />
-        )}
-        DoneButtonComponent={(props) => (
-          <Btn label="Done" onPress={props.onPress} />
-        )}
-        DotComponent={Dot}
-        pages={[
-          {
-            backgroundColor: COLOR.secondary3,
-            image: (
-              <Image
-                className="h-[250px]"
-                resizeMode="contain"
-                source={require("../assets/images/Logo.png")}
-              />
-            ),
-            title: "Divvy",
-            subtitle: "Chia chuẩn, vui cùng nhau.",
-          },
-          {
-            backgroundColor: COLOR.secondary3,
-            image: (
-              <Image
-                className="h-[250px]"
-                resizeMode="contain"
-                source={require("../assets/images/onboard-1.png")}
-              />
-            ),
-            title: "Nhanh, Chuẩn, Không ai thiệt!",
-            subtitle:
-              "Dù là đi ăn, đi chơi, hay du lịch cùng bạn bè, chỉ cần chụp hoá đơn — mọi chi phí được tự động nhận dạng và chia đều hoặc tuỳ chỉnh linh hoạt.",
-          },
-          {
-            backgroundColor: COLOR.secondary3,
-            image: (
-              <Image
-                className="h-[250px]"
-                resizeMode="contain"
-                source={require("../assets/images/onboard-2.png")}
-              />
-            ),
-            title: "Không cần nhập tay — App tự đọc và chia!",
-            subtitle:
-              "Công nghệ OCR thông minh giúp bạn nhận diện hoá đơn, tổng tiền, từng món và người chi trả chỉ trong vài giây.",
-          },
-          {
-            backgroundColor: COLOR.secondary3,
-            image: (
-              <Image
-                className="h-[250px]"
-                resizeMode="contain"
-                source={require("../assets/images/onboard-3.png")}
-              />
-            ),
-            title: "Ai trả bao nhiêu? Ai còn nợ ai?",
-            subtitle:
-              "Ứng dụng tự động tổng hợp chi tiết các khoản chi, hiển thị rõ ràng. Dễ dàng xuất file Excel hoặc PDF để lưu lại.",
-          },
-          {
-            backgroundColor: COLOR.secondary3,
-            image: (
-              <Image
-                className="h-[250px]"
-                resizeMode="contain"
-                source={require("../assets/images/onboard-4.png")}
-              />
-            ),
-            title: "Quét hoá đơn bằng AI",
-            subtitle:
-              "Công nghệ OCR thông minh giúp bạn nhận diện hoá đơn, tổng tiền, từng món và người chi trả chỉ trong vài giây.",
-          },
-        ]}
-      />
+      <SafeAreaView className="flex-1 bg-secondary3">
+        <Onboarding
+          onSkip={handleFinish}
+          onDone={handleFinish}
+          titleStyles={{
+            color: COLOR.dark1,
+            fontWeight: 700,
+          }}
+          subTitleStyles={{
+            width: 300,
+            fontSize: 16,
+          }}
+          bottomBarColor={COLOR.secondary3}
+          SkipButtonComponent={(props) => (
+            <Btn label="Skip" onPress={props.onPress} />
+          )}
+          NextButtonComponent={(props) => (
+            <Btn label="Next" onPress={props.onPress} />
+          )}
+          DoneButtonComponent={(props) => (
+            <Btn label="Done" onPress={props.onPress} />
+          )}
+          DotComponent={Dot}
+          pages={[
+            {
+              backgroundColor: COLOR.secondary3,
+              image: (
+                <Image
+                  className="h-[250px]"
+                  resizeMode="contain"
+                  source={require("../assets/images/Logo.png")}
+                />
+              ),
+              title: "Divvy",
+              subtitle: "Chia chuẩn, vui cùng nhau.",
+            },
+            {
+              backgroundColor: COLOR.secondary3,
+              image: (
+                <Image
+                  className="h-[250px]"
+                  resizeMode="contain"
+                  source={require("../assets/images/onboard-1.png")}
+                />
+              ),
+              title: "Nhanh, Chuẩn, Không ai thiệt!",
+              subtitle:
+                "Dù là đi ăn, đi chơi, hay du lịch cùng bạn bè, chỉ cần chụp hoá đơn — mọi chi phí được tự động nhận dạng và chia đều hoặc tuỳ chỉnh linh hoạt.",
+            },
+            {
+              backgroundColor: COLOR.secondary3,
+              image: (
+                <Image
+                  className="h-[250px]"
+                  resizeMode="contain"
+                  source={require("../assets/images/onboard-2.png")}
+                />
+              ),
+              title: "Không cần nhập tay — App tự đọc và chia!",
+              subtitle:
+                "Công nghệ OCR thông minh giúp bạn nhận diện hoá đơn, tổng tiền, từng món và người chi trả chỉ trong vài giây.",
+            },
+            {
+              backgroundColor: COLOR.secondary3,
+              image: (
+                <Image
+                  className="h-[250px]"
+                  resizeMode="contain"
+                  source={require("../assets/images/onboard-3.png")}
+                />
+              ),
+              title: "Ai trả bao nhiêu? Ai còn nợ ai?",
+              subtitle:
+                "Ứng dụng tự động tổng hợp chi tiết các khoản chi, hiển thị rõ ràng. Dễ dàng xuất file Excel hoặc PDF để lưu lại.",
+            },
+            {
+              backgroundColor: COLOR.secondary3,
+              image: (
+                <Image
+                  className="h-[250px]"
+                  resizeMode="contain"
+                  source={require("../assets/images/onboard-4.png")}
+                />
+              ),
+              title: "Quét hoá đơn bằng AI",
+              subtitle:
+                "Công nghệ OCR thông minh giúp bạn nhận diện hoá đơn, tổng tiền, từng món và người chi trả chỉ trong vài giây.",
+            },
+          ]}
+        />
+      </SafeAreaView>
     </>
   );
 }
