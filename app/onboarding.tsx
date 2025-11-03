@@ -3,9 +3,11 @@ import { COLOR } from "@/utils/color";
 import { useRouter } from "expo-router";
 import { Image, TouchableOpacity, View, Text } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function OnboardingPage() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
 
   const Btn = ({ label, onPress }: { label: string; onPress?: () => void }) =>
     label === "Next" || label === "Done" ? (
@@ -70,6 +72,7 @@ export default function OnboardingPage() {
       <Onboarding
         onSkip={handleFinish}
         onDone={handleFinish}
+        bottomBarHeight={60 + insets.bottom}
         titleStyles={{
           color: COLOR.dark1,
           fontWeight: 700,
