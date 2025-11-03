@@ -19,7 +19,7 @@ export default function OnboardingPage() {
         style={{
           alignItems: "center",
           justifyContent: "center",
-          width: 75,
+          // width: 75,
           paddingHorizontal: 18,
           paddingVertical: 10,
           borderRadius: 999,
@@ -36,7 +36,7 @@ export default function OnboardingPage() {
         style={{
           alignItems: "center",
           justifyContent: "center",
-          width: 75,
+          // width: 75,
           paddingHorizontal: 18,
           paddingVertical: 10,
           borderRadius: 999,
