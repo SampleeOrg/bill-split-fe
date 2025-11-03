@@ -1,7 +1,7 @@
 import { storeData } from "@/utils/asyncStorage";
-import { Button, Text } from "@react-navigation/elements";
+import { COLOR } from "@/utils/color";
 import { useRouter } from "expo-router";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View, Text } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 
 export default function OnboardingPage() {
@@ -18,12 +18,12 @@ export default function OnboardingPage() {
           paddingHorizontal: 18,
           paddingVertical: 10,
           borderRadius: 999,
-          backgroundColor: label === "Next" ? "#111" : "#996BFF",
+          backgroundColor: label === "Next" ? COLOR.dark1 : COLOR.primary3,
           marginRight: 16,
           marginBottom: 0,
         }}
       >
-        <Text style={{ color: "#fff", fontWeight: "600" }}>{label}</Text>
+        <Text className="text-light1 font-bold">{label}</Text>
       </TouchableOpacity>
     ) : (
       <TouchableOpacity
@@ -35,12 +35,12 @@ export default function OnboardingPage() {
           paddingHorizontal: 18,
           paddingVertical: 10,
           borderRadius: 999,
-          backgroundColor: "#111",
-          marginLeft: 16, // 🔹 Đừng để nó chạm mép
-          marginBottom: 0, // 🔹 Cách nhẹ với đáy bar
+          backgroundColor: COLOR.dark1,
+          marginLeft: 16,
+          marginBottom: 0,
         }}
       >
-        <Text style={{ color: "#fff", fontWeight: "600" }}>{label}</Text>
+        <Text className="text-light1 font-bold">{label}</Text>
       </TouchableOpacity>
     );
 
@@ -52,7 +52,7 @@ export default function OnboardingPage() {
           height: 8,
           borderRadius: 6,
           marginHorizontal: 4,
-          backgroundColor: selected ? "#996BFF" : "#ADB0B9", // active / inactive color
+          backgroundColor: selected ? COLOR.primary3 : COLOR.primary2, // active / inactive color
           opacity: selected ? 1 : 0.5,
           transform: [{ scale: selected ? 1.1 : 1 }],
         }}
@@ -71,7 +71,7 @@ export default function OnboardingPage() {
         onSkip={handleFinish}
         onDone={handleFinish}
         titleStyles={{
-          color: "#000",
+          color: COLOR.dark1,
           fontWeight: 700,
         }}
         subTitleStyles={{
@@ -90,7 +90,7 @@ export default function OnboardingPage() {
         DotComponent={Dot}
         pages={[
           {
-            backgroundColor: "#FFF4B6",
+            backgroundColor: COLOR.secondary3,
             image: (
               <Image
                 className="h-[250px]"
@@ -102,7 +102,7 @@ export default function OnboardingPage() {
             subtitle: "Chia chuẩn, vui cùng nhau.",
           },
           {
-            backgroundColor: "#FFF4B6",
+            backgroundColor: COLOR.secondary3,
             image: (
               <Image
                 className="h-[250px]"
@@ -115,7 +115,7 @@ export default function OnboardingPage() {
               "Dù là đi ăn, đi chơi, hay du lịch cùng bạn bè, chỉ cần chụp hoá đơn — mọi chi phí được tự động nhận dạng và chia đều hoặc tuỳ chỉnh linh hoạt.",
           },
           {
-            backgroundColor: "#FFF4B6",
+            backgroundColor: COLOR.secondary3,
             image: (
               <Image
                 className="h-[250px]"
@@ -128,7 +128,7 @@ export default function OnboardingPage() {
               "Công nghệ OCR thông minh giúp bạn nhận diện hoá đơn, tổng tiền, từng món và người chi trả chỉ trong vài giây.",
           },
           {
-            backgroundColor: "#FFF4B6",
+            backgroundColor: COLOR.secondary3,
             image: (
               <Image
                 className="h-[250px]"
@@ -141,7 +141,7 @@ export default function OnboardingPage() {
               "Ứng dụng tự động tổng hợp chi tiết các khoản chi, hiển thị rõ ràng. Dễ dàng xuất file Excel hoặc PDF để lưu lại.",
           },
           {
-            backgroundColor: "#FFF4B6",
+            backgroundColor: COLOR.secondary3,
             image: (
               <Image
                 className="h-[250px]"

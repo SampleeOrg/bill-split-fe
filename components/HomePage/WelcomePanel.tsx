@@ -5,8 +5,8 @@ export default function WelcomePanel() {
     <View className="flex-row justify-between items-center">
       {/* Left */}
       <View>
-        <Text className="mb-[10px]">Hello, Mahito</Text>
-        <Text className="font-bold">Let&apos;s Divvy The Bill</Text>
+        <Text className="mb-[10px] font-inter">Hello, Mahito</Text>
+        <Text className="font-bold font-inter">Let&apos;s Divvy The Bill</Text>
       </View>
       {/* Right */}
       <View>

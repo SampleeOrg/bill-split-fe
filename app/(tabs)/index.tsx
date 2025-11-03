@@ -1,9 +1,18 @@
+import ListItem from "@/components/HomePage/common/ListItem";
 import CreateNewEvent from "@/components/HomePage/CreateNewEvent";
+import EventList from "@/components/HomePage/EventList";
 import WelcomePanel from "@/components/HomePage/WelcomePanel";
-import { getData } from "@/utils/asyncStorage";
+import { getData, removeData } from "@/utils/asyncStorage";
 import { Link, useRouter } from "expo-router";
 import { useCallback, useEffect } from "react";
-import { Image, Text, View } from "react-native";
+import {
+  Image,
+  Text,
+  View,
+  TouchableOpacity,
+  Alert,
+  FlatList,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -20,11 +29,40 @@ export default function HomeScreen() {
     checkFirstTimeOpen();
   }, []);
 
+  const handleResetData = () => {
+    Alert.alert(
+      "Reset App Data",
+      "Are you sure you want to clear all saved data? This will log you out and show onboarding again.",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Reset",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              await removeData("onboarded");
+              router.replace("/onboarding"); // show onboarding again
+              console.log("✅ AsyncStorage cleared");
+            } catch (error) {
+              console.error("Error clearing storage:", error);
+            }
+          },
+        },
+      ]
+    );
+  };
+
   return (
-    <SafeAreaView className="bg-white flex-1">
+    <SafeAreaView className="flex-1">
       <View className="p-5 gap-5">
         <WelcomePanel />
         <CreateNewEvent />
+
+        <EventList />
+
+        <TouchableOpacity onPress={handleResetData}>
+          <Text className="font-inter">Clear App Data</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

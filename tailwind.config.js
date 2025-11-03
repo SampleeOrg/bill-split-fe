@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const token = require("./utils/token.js");
+
 module.exports = {
   content: [
     "./App.{js,jsx,ts,tsx}",
@@ -8,20 +11,26 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ["inter"],
+      },
       colors: {
-        primary1: "#F5DB54",
-        primary2: "#ADB0B9",
-        primary3: "#996BFF",
-        primary4: "#118C4F",
-        alert: "#EE4B2B",
-        secondary1: "#EAE4FC",
-        secondary2: "#D3EFDE",
-        secondary3: "#FFF4b6",
-        secondary4: "#D4D3E8",
-        dark1: "#181a1f",
-        dark2: "#21242c",
-        dark3: "#19191D",
-        light1: "#fff",
+        primary1: token.colors.primary1,
+        primary2: token.colors.primary2,
+        primary3: token.colors.primary3,
+        primary4: token.colors.primary4,
+        alert: token.colors.alert,
+        secondary1: token.colors.secondary1,
+        secondary2: token.colors.secondary2,
+        secondary3: token.colors.secondary3,
+        secondary4: token.colors.secondary4,
+        dark1: token.colors.dark1,
+        dark2: token.colors.dark2,
+        dark3: token.colors.dark3,
+        light1: token.colors.light1,
+        light2: token.colors.light2,
+        light3: token.colors.light3,
+        light4: token.colors.light4,
       },
     },
   },

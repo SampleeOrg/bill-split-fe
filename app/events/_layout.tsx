@@ -6,6 +6,7 @@ export default function EventLayout() {
       screenOptions={{
         animation: "fade",
         headerShown: false,
+        gestureEnabled: true,
       }}
     >
       <Stack.Screen name="add" options={{ headerShown: true, title: "Add" }} />
