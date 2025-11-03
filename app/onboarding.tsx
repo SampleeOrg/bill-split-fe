@@ -60,8 +60,8 @@ export default function OnboardingPage() {
     );
   };
 
-  const handleFinish = () => {
-    storeData("onboarded", "1");
+  const handleFinish = async () => {
+    await storeData("onboarded", "1");
     router.replace("/");
   };
 
