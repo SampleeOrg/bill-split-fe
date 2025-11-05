@@ -50,6 +50,13 @@
         "projectId": "c2291691-91be-4a84-a000-c3811e52d28b"
       }
     },
-    "owner": "tuanemtramtinh"
+    "owner": "tuanemtramtinh",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c2291691-91be-4a84-a000-c3811e52d28b"
+    },
+    "ios": {}
   }
 }
