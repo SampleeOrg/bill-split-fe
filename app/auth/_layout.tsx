@@ -28,7 +28,7 @@ export default function AuthLayout() {
                 iconColor={COLOR.light1}
                 containerColor={COLOR.dark1}
                 size={24}
-                onPress={() => router.replace("/")}
+                onPress={() => router.back()}
               />
             </View>
             <Logo width={50} height={50} />

@@ -51,14 +51,20 @@ export default function LoginPage() {
             style={{
               paddingLeft: 0,
             }}
+            labelStyle={{
+              fontSize: 14,
+            }}
             onPress={() => {
               if (checkbox === "unchecked") setCheckbox("checked");
               else setCheckbox("unchecked");
             }}
           />
-          <Text className="font-inter text-lg text-primary3 font-bold">
+          <Link
+            href={"/auth/forgot_password"}
+            className="font-inter text-primary3 font-bold"
+          >
             Forgot password ?
-          </Text>
+          </Link>
         </View>
         <Button
           mode="contained"

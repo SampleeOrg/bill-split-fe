@@ -1,18 +1,10 @@
-import ListItem from "@/components/common/ListItem";
 import CreateNewEvent from "@/components/HomePage/CreateNewEvent";
 import EventList from "@/components/HomePage/EventList";
 import WelcomePanel from "@/components/HomePage/WelcomePanel";
 import { getData, removeData } from "@/utils/asyncStorage";
-import { Link, useRouter } from "expo-router";
+import { RelativePathString, useRouter } from "expo-router";
 import { useCallback, useEffect } from "react";
-import {
-  Image,
-  Text,
-  View,
-  TouchableOpacity,
-  Alert,
-  FlatList,
-} from "react-native";
+import { Text, View, TouchableOpacity, Alert, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -64,7 +56,9 @@ export default function HomeScreen() {
           <Text className="font-inter">Clear App Data</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push("/auth/login")}>
+        <TouchableOpacity
+          onPress={() => router.push("/auth/login" as RelativePathString)}
+        >
           <Text className="font-inter">Login</Text>
         </TouchableOpacity>
       </View>
