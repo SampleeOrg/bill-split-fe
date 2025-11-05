@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { Image, Text, View } from "react-native";
 
 export default function WelcomePanel() {
@@ -11,10 +12,9 @@ export default function WelcomePanel() {
       {/* Right */}
       <View>
         <View className="w-[60px] aspect-square rounded-full overflow-hidden border">
-          <Image
-            className="w-full h-full"
-            source={require("../../assets/images/avatar.png")}
-          />
+          <Link href={"/users/profile"}>
+            <Image className="w-full h-full" source={require("../../assets/images/avatar.png")} />
+          </Link>
         </View>
       </View>
     </View>

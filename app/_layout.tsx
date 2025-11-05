@@ -2,11 +2,7 @@ import { Stack } from "expo-router";
 import "../global.css";
 import { useFonts } from "expo-font";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import {
-  configureFonts,
-  MD3LightTheme,
-  PaperProvider,
-} from "react-native-paper";
+import { configureFonts, MD3LightTheme, PaperProvider } from "react-native-paper";
 
 import { registerTranslation, en } from "react-native-paper-dates";
 import { ActivityIndicator, Text, View } from "react-native";
@@ -59,6 +55,12 @@ export default function RootLayout() {
             <Stack.Screen name="(tabs)" />
             <Stack.Screen name="events" />
             <Stack.Screen name="auth" />
+            <Stack.Screen
+              name="users/profile"
+              options={{
+                animation: "fade_from_bottom",
+              }}
+            />
           </Stack>
         </SafeAreaProvider>
       </PaperProvider>

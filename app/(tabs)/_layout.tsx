@@ -41,16 +41,14 @@ export default function TabLayout() {
             flex: 1,
             alignItems: "center",
           },
+          animation: "fade",
         }}
       >
         <Tabs.Screen
           name="index"
           options={{
             tabBarIcon: ({ focused, color }) => (
-              <Icon
-                focused={focused}
-                icon={<Home width={24} height={24} color={color} />}
-              />
+              <Icon focused={focused} icon={<Home width={24} height={24} color={color} />} />
             ),
           }}
         />
@@ -58,10 +56,7 @@ export default function TabLayout() {
           name="search"
           options={{
             tabBarIcon: ({ focused, color }) => (
-              <Icon
-                focused={focused}
-                icon={<Search width={24} height={24} color={color} />}
-              />
+              <Icon focused={focused} icon={<Search width={24} height={24} color={color} />} />
             ),
           }}
         />
@@ -96,10 +91,7 @@ export default function TabLayout() {
           name="history"
           options={{
             tabBarIcon: ({ focused, color }) => (
-              <Icon
-                focused={focused}
-                icon={<History width={24} height={24} color={color} />}
-              />
+              <Icon focused={focused} icon={<History width={24} height={24} color={color} />} />
             ),
           }}
         />
