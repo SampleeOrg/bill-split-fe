@@ -47,7 +47,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1">
       <View className="p-5 gap-5">
-        <WelcomePanel />
+        <WelcomePanel mode="home" />
         <CreateNewEvent />
 
         <EventList />

@@ -1,3 +1,4 @@
+import WelcomePanel from "@/components/HomePage/WelcomePanel";
 import { COLOR } from "@/utils/color";
 import { useState } from "react";
 import { View } from "react-native";
@@ -8,7 +9,8 @@ export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   return (
-    <SafeAreaView className="p-5">
+    <SafeAreaView className="p-5 gap-5">
+      <WelcomePanel />
       <Searchbar
         placeholder="Search"
         onChangeText={(text) => setSearchQuery(text)}
