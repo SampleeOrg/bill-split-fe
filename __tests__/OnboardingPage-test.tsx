@@ -33,7 +33,8 @@ jest.mock("expo-router", () => ({
 }));
 
 jest.mock("react-native-onboarding-swiper", () => {
-  const { View } = jest.requireActual("react-native");
+  const React = jest.requireActual("react");
+  const { View, Text } = jest.requireActual("react-native");
 
   const MockOnboarding = ({
     SkipButtonComponent,
@@ -41,13 +42,31 @@ jest.mock("react-native-onboarding-swiper", () => {
     DoneButtonComponent,
     onSkip,
     onDone,
-  }: any) => (
-    <View>
-      {SkipButtonComponent ? <SkipButtonComponent onPress={onSkip} /> : null}
-      {NextButtonComponent ? <NextButtonComponent onPress={jest.fn()} /> : null}
-      {DoneButtonComponent ? <DoneButtonComponent onPress={onDone} /> : null}
-    </View>
-  );
+    pages = [],
+  }: any) => {
+    const [index, setIndex] = React.useState(0);
+    const page = pages[index] ?? {};
+
+    const handleNext = () => {
+      if (index < pages.length - 1) {
+        setIndex(index + 1);
+        return;
+      }
+      onDone?.();
+    };
+
+    return (
+      <View>
+        <View testID="mock-onboarding-page">
+          {page.title ? <Text>{page.title}</Text> : null}
+          {page.subtitle ? <Text>{page.subtitle}</Text> : null}
+        </View>
+        {SkipButtonComponent ? <SkipButtonComponent onPress={onSkip} /> : null}
+        {NextButtonComponent ? <NextButtonComponent onPress={handleNext} /> : null}
+        {DoneButtonComponent ? <DoneButtonComponent onPress={onDone} /> : null}
+      </View>
+    );
+  };
 
   MockOnboarding.displayName = "MockOnboarding";
 
@@ -98,10 +117,12 @@ describe("OnboardingPage", () => {
     expect(mockReplace).toHaveBeenCalledWith("/");
   });
 
-  it("renders Next button without finishing onboarding", () => {
+  it("advances content when pressing Next without finishing onboarding", () => {
     const { getByText } = render(<OnboardingPage />);
 
+    expect(getByText("Divvy")).toBeTruthy();
     fireEvent.press(getByText("Next"));
+    expect(getByText("Nhanh, Chuẩn, Không ai thiệt!")).toBeTruthy();
 
     expect(storeDataMock).not.toHaveBeenCalled();
     expect(mockReplace).not.toHaveBeenCalled();
