@@ -5,26 +5,18 @@ import { storeData } from "@/utils/asyncStorage";
 
 const mockReplace = jest.fn();
 
-jest.mock(
-  "@/utils/asyncStorage",
-  () => ({
-    storeData: jest.fn(),
-  }),
-  { virtual: true }
-);
+jest.mock("@/utils/asyncStorage", () => ({
+  storeData: jest.fn(),
+}));
 
-jest.mock(
-  "@/utils/color",
-  () => ({
-    COLOR: {
-      dark1: "#111111",
-      primary2: "#222222",
-      primary3: "#333333",
-      secondary3: "#444444",
-    },
-  }),
-  { virtual: true }
-);
+jest.mock("@/utils/color", () => ({
+  COLOR: {
+    dark1: "#111111",
+    primary2: "#222222",
+    primary3: "#333333",
+    secondary3: "#444444",
+  },
+}));
 
 jest.mock("expo-router", () => ({
   useRouter: () => ({
@@ -66,9 +58,7 @@ jest.mock("react-native-onboarding-swiper", () => {
         {/* Render pagination dots */}
         <View testID="pagination-dots">
           {pages.map((_: any, i: number) =>
-            DotComponent ? (
-              <DotComponent key={i} selected={i === index} />
-            ) : null
+            DotComponent ? <DotComponent key={i} selected={i === index} /> : null
           )}
         </View>
 

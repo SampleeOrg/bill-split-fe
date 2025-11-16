@@ -1,6 +1,6 @@
 import EventIcon from "@/assets/images/event-icon.svg";
 
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 export default function ListItem({
   name = "Oyasumi Punpun",
@@ -29,9 +29,7 @@ export default function ListItem({
         <Text className="bg-primary3 text-light1 rounded-lg p-1 text-sm font-bold font-inter">
           VND {price.toLocaleString()}
         </Text>
-        <Text className="text-primary2 font-semibold font-inter">
-          {people} persons
-        </Text>
+        <Text className="text-primary2 font-semibold font-inter">{people} persons</Text>
       </View>
     </View>
   );

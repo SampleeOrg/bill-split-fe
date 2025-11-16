@@ -24,7 +24,7 @@ export default function HomeScreen() {
   const resetData = async () => {
     try {
       await removeData("onboarded");
-      router.replace("/onboarding"); // show onboarding again
+      router.replace("/onboarding");
       console.log("✅ AsyncStorage cleared");
     } catch (error) {
       console.error("Error clearing storage:", error);

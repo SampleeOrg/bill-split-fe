@@ -41,12 +41,7 @@ export default function EventList() {
       data={DATA}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <ListItem
-          name={item.name}
-          date={item.date}
-          price={item.price}
-          people={item.people}
-        />
+        <ListItem name={item.name} date={item.date} price={item.price} people={item.people} />
       )}
     />
   );
