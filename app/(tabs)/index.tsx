@@ -21,6 +21,16 @@ export default function HomeScreen() {
     checkFirstTimeOpen();
   }, []);
 
+  const resetData = async () => {
+    try {
+      await removeData("onboarded");
+      router.replace("/onboarding"); // show onboarding again
+      console.log("✅ AsyncStorage cleared");
+    } catch (error) {
+      console.error("Error clearing storage:", error);
+    }
+  };
+
   const handleResetData = () => {
     Alert.alert(
       "Reset App Data",
@@ -30,15 +40,7 @@ export default function HomeScreen() {
         {
           text: "Reset",
           style: "destructive",
-          onPress: async () => {
-            try {
-              await removeData("onboarded");
-              router.replace("/onboarding"); // show onboarding again
-              console.log("✅ AsyncStorage cleared");
-            } catch (error) {
-              console.error("Error clearing storage:", error);
-            }
-          },
+          onPress: resetData,
         },
       ]
     );
