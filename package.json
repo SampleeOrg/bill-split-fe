@@ -23,7 +23,7 @@
     ],
     "collectCoverage": false,
     "collectCoverageFrom": [
-      "app/**/*.{ts,tsx}",
+      "app/onboarding.tsx",
       "components/**/*.{ts,tsx}",
       "utils/**/*.{ts,tsx}",
       "!**/*.d.ts",
