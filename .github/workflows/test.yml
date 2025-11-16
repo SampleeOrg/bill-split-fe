@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run Jest Coverage Tests
-        run: npm run test:onboarding
+        run: npm run test:coverage
 
       - name: Check coverage files
         run: |
