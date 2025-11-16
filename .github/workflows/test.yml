@@ -3,10 +3,10 @@ name: React Native CI - Test, Report & SonarCloud
 on:
   push:
     branches:
-      - github_action_testings
+      - main
   pull_request:
     branches:
-      - github_action_testings
+      - main
 
 jobs:
   test-and-analyze:
