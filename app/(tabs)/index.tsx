@@ -1,10 +1,10 @@
 import CreateNewEvent from "@/components/HomePage/CreateNewEvent";
 import EventList from "@/components/HomePage/EventList";
 import WelcomePanel from "@/components/HomePage/WelcomePanel";
-import { getData, removeData } from "@/utils/asyncStorage";
-import { RelativePathString, useRouter } from "expo-router";
+import { getData } from "@/utils/asyncStorage";
+import { useRouter } from "expo-router";
 import { useCallback, useEffect } from "react";
-import { Text, View, TouchableOpacity, Alert, FlatList } from "react-native";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
