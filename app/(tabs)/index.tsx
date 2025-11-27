@@ -21,33 +21,6 @@ export default function HomeScreen() {
     checkFirstTimeOpen();
   }, []);
 
-  // const resetData = async () => {
-  //   try {
-  //     await removeData("onboarded");
-  //     router.replace("/onboarding");
-  //     console.log("✅ AsyncStorage cleared");
-  //   } catch (error) {
-  //     console.error("Error clearing storage:", error);
-  //   }
-  // };
-
-  // const handleResetData = () => {
-  //   Alert.alert(
-  //     "Reset App Data",
-  //     "Are you sure you want to clear all saved data? This will log you out and show onboarding again.",
-  //     [
-  //       { text: "Cancel", style: "cancel" },
-  //       {
-  //         text: "Reset",
-  //         style: "destructive",
-  //         onPress: () => {
-  //           resetData();
-  //         },
-  //       },
-  //     ]
-  //   );
-  // };
-
   return (
     <SafeAreaView className="flex-1">
       <View className="p-5 gap-5">
@@ -55,14 +28,6 @@ export default function HomeScreen() {
         <CreateNewEvent />
 
         <EventList />
-
-        {/* <TouchableOpacity onPress={handleResetData}>
-          <Text className="font-inter">Clear App Data</Text>
-        </TouchableOpacity> */}
-
-        {/* <TouchableOpacity onPress={() => router.push("/auth/login" as RelativePathString)}>
-          <Text className="font-inter">Login</Text>
-        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );
